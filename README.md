@@ -119,11 +119,11 @@ https://developer.confluent.io/courses/apache-flink/streaming-analytics-exercise
 This is a materializing query, meaning they keep some state indefinitely.
 
 ```
-	SELECT
-	  FLOOR(ts TO SECOND) AS window_start,
-	  count(url) as cnt
-	FROM pageviews
-	GROUP BY FLOOR(ts TO SECOND);
+SELECT
+  FLOOR(ts TO SECOND) AS window_start,
+  count(url) as cnt
+FROM pageviews
+GROUP BY FLOOR(ts TO SECOND);
 ```
 
 There is a problem with doing windowing this way, and that problem has to do with state retention. When windowing is expressed this way, Flink SQL engine doesnt know anything about the semantics of FLOOR(ts TO SECOND). We know that the result of this function is connected to time, and that the timestamps are (approximately) ordered by time.
@@ -149,11 +149,11 @@ For this exercise, you will experiment with windows that use processing time. Th
 Flink SQL includes special operations for windowing, which we can now take advantage of. This requires setting up the query in a particular way, using one of the built-in window functions, such as TUMBLE:
 
 ```
-	SELECT
-	  window_start, count(url) AS cnt
-	FROM TABLE(
-	  TUMBLE(TABLE pageviews, DESCRIPTOR(proc_time), INTERVAL '1' SECOND))
-	GROUP BY window_start;
+SELECT
+  window_start, count(url) AS cnt
+FROM TABLE(
+  TUMBLE(TABLE pageviews, DESCRIPTOR(proc_time), INTERVAL '1' SECOND))
+GROUP BY window_start;
 ```	
 	
 The built-in TUMBLE function used in this query is an example of a table-valued function. This function takes three parameters
@@ -165,8 +165,8 @@ The built-in TUMBLE function used in this query is an example of a table-valued 
 and it returns a new table based on the input table, but with two additional columns added to aid with windowing. To see how this works, try executing this part of the windowing query on its own:
 
 ```
-	SELECT *
-	FROM TABLE(TUMBLE(TABLE pageviews, DESCRIPTOR(proc_time), INTERVAL '1' SECOND));
+SELECT *
+FROM TABLE(TUMBLE(TABLE pageviews, DESCRIPTOR(proc_time), INTERVAL '1' SECOND));
 ```
 
 What you're seeing is that the table returned by the TUMBLE function has window_start and window_end columns indicating which one-second-long window each pageview event has been assigned to.
