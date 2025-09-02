@@ -16,13 +16,24 @@ https://nightlies.apache.org/flink/flink-docs-stable/docs/concepts/flink-archite
 -- Flink Web UI
 
 http://localhost:8081
-
 	
 -- Apache Kafka® and Apache Flink® Tutorials
 
 https://developer.confluent.io/tutorials/#master-advanced-concepts	
-	
-	
+
+--------------------------------------
+Web Links
+--------------------------------------
+ 
+--------------------------------------
+Good Vids
+--------------------------------------
+
+Apache Flink Series-The Ultimate Flink DataStream Course
+
+https://www.youtube.com/playlist?list=PLD6DcxwkW8BcbMSbNWeg_xKhS3kS5DQcB 
+
+https://www.udemy.com/course/apache-flink-series-the-ultimate-flink-datastream-course/?referralCode=023912394FCC80BA1341&couponCode=LEARNNOWPLANSGB
 	
 ******************************************************************************************************************************
 --------------------------------------
