@@ -34,7 +34,9 @@ Apache Flink Series-The Ultimate Flink DataStream Course
 https://www.youtube.com/playlist?list=PLD6DcxwkW8BcbMSbNWeg_xKhS3kS5DQcB 
 
 https://www.udemy.com/course/apache-flink-series-the-ultimate-flink-datastream-course/?referralCode=023912394FCC80BA1341&couponCode=LEARNNOWPLANSGB
-	
+
+https://www.udemy.com/course/apache-flink-a-real-time-hands-on-course-on-flink/?couponCode=LEARNNOWPLANSGB
+
 ******************************************************************************************************************************
 --------------------------------------
 Checkpoints vs. Savepoints
